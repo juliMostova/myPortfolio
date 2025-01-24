@@ -1,0 +1,39 @@
+.container{
+display: flex;
+flex-direction: column;
+text-align: center;
+}
+.skills_head{
+    font-size: 2rem;
+  font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    padding: 40px;
+}
+span{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+img{
+    width: 20px;
+    margin-left: 10px;
+}
+.skillsListElem{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    align-self: center;
+}
+
+@media(max-width:576px){
+    .skillsListElem{
+        max-width: fit-content;  
+        gap:20px;
+    }
+    .skills_head{
+        margin: 5px;
+        padding: 5px;
+    }
+}

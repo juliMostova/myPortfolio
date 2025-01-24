@@ -1,0 +1,7 @@
+.container_footer{
+    text-align: center;
+}
+p{
+    font-size: 13px;
+    color:var(--footer-text-color);
+}
