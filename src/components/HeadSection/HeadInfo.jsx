@@ -7,8 +7,8 @@ import linkedin_dark from "./../../assets/linkedin-light.svg";
 import sun from "./../../assets/sun.svg";
 import moon from "./../../assets/moon.svg";
 import { useTheme } from "./../ThemeContext";
-import portfolio_EN from "./../../assets/portfolio EN.pdf";
-import portfolio_UK from "./../../assets/portfolio UK.pdf";
+import portfolio_EN from "./../../assets/portfolio_EN.pdf";
+import portfolio_UK from "./../../assets/portfolio_UK.pdf";
 
 function HeadInfo() {
   const { theme, toggleTheme } = useTheme();
@@ -26,17 +26,19 @@ function HeadInfo() {
           Mostova
         </h1>
         <h2>Frontend Developer</h2>
-        <span className={styles.image_box}>
+      
+        <div className={styles.image_box}>
           <a href="https://github.com/juliMostova" target="_blank">
             <img src={github} alt="githubDark" />
           </a>
           <a
-            href="https://www.linkedin.com/in/%D1%8E%D0%BB%D1%96%D1%8F-%D0%BC%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D0%B0-a6aa7b228/"
+            href="https://www.linkedin.com/in/юлія-мостова-a6aa7b228"
             target="_blank"
           >
             <img src={linkedin} alt="linkedin_pictures" />
           </a>
-        </span>
+        </div>
+       
         <p className={styles.description}>
           With enthusiasm and a fresh look at the world of Frontend development
         </p>

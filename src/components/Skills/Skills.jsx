@@ -24,6 +24,7 @@ const changeTheme = theme === 'dark' ? checkDark : checkLight ;
         <SkillsList src={changeTheme} skill="Vite"/>
         <SkillsList src={changeTheme} skill="Redux"/>
         <SkillsList src={changeTheme} skill="Node"/>
+        <SkillsList src={changeTheme} skill="Firebase"/> 
       </div>
 <br></br>
 <div className={styles.skillsListElem}>

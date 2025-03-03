@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-
+import { useContext } from "react";
 import styles from "./ContactStyle.module.css";
 
 function Contact() {
@@ -32,7 +32,7 @@ reset();
             required: "Please enter your name.",
             pattern: {
               value: /^[A-Za-z\s]+$/,
-              message: "Name can only contain letters and spaces.",
+              message: "Name can only contain letters.",
             },
           })}
         />
