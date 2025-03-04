@@ -14,7 +14,7 @@ const cardData = [
     img: barSite,
     description: "This is a bar website",
     github: "https://github.com/juliMostova/bar-website",
-    demo: "",
+    demo: "https://julimostova.github.io/bar-website/",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const cardData = [
     img: travelTrip,
     description: "Travel blog and trip planning",
     github: "https://github.com/juliMostova/Travel-",
-    demo: "https://julimostova.github.io/",
+    demo: "https://julimostova.github.io/Travel-/",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const cardData = [
     img: shoppingCard,
     description: "Online shopping cart",
     github: "https://github.com/juliMostova/shoppingCard",
-    demo: "",
+    demo: "https://julimostova.github.io/shoppingCard/",
   },
 ];
 
