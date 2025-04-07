@@ -30,8 +30,8 @@ const changeTheme = theme === 'dark' ? checkDark : checkLight ;
 <div className={styles.skillsListElem}>
         <SkillsList src={changeTheme} skill="Material UI"/>
         <SkillsList src={changeTheme} skill="Tailwind CSS"/>
-        {/* <SkillsList src={changeTheme} skill="Git"/> */}
         <SkillsList src={changeTheme} skill="Bootstrap"/>
+        <SkillsList src={changeTheme} skill="Gulp"/>
       </div>
     </div>
   )
