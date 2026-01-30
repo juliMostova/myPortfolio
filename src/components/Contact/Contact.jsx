@@ -1,60 +1,84 @@
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useContext } from "react";
+import { useForm as useReactHookForm } from "react-hook-form";
+import { useForm as useFormspree } from "@formspree/react";
+import { useEffect, useState } from "react";
 import styles from "./ContactStyle.module.css";
 
 function Contact() {
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit,
     reset,
-  } = useForm({ mode: "onBlur" });
+  } = useReactHookForm({ mode: "onBlur" });
 
-  const [correct, setCorrect] = useState('');
+  const [state, formspreeSubmit] = useFormspree("mnnplqyp");
+  const [successMsg, setSuccessMsg] = useState("");
 
-const submit = (data)=>{
-console.log("Message",data)
-setCorrect('Your message has been sent successfully!');
+  const onSubmit = async (data) => {
+    await formspreeSubmit(data);
+
+  };
+
+  useEffect(() => {
+    if (state.succeeded) {
+     setSuccessMsg("Your message has been sent successfully!");
 reset();
-}
+
+const timer = setTimeout(()=>{
+  setSuccessMsg("");
+},3000);
 
 
+return ()=>clearInterval(timer);
+    }
+  }, [state.succeeded,reset]);
 
   return (
     <section className={styles.container}>
       <h1 className={styles.head}>Contact</h1>
-      <form onSubmit={handleSubmit(submit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
           placeholder="Name"
-          {...register("Name", {
+          {...register("name", {
             required: "Please enter your name.",
             pattern: {
-              value: /^[A-Za-z\s]+$/,
+              value: /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s'-]+$/,
               message: "Name can only contain letters.",
             },
           })}
         />
-        {errors.Name && <p>{errors.Name.message}</p>}
-<input type="email" placeholder="Email"
-{...register("email", {
-  required: "You need to type something",
-  pattern: {
-    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-    message: "Please enter your email.",
-  },
-  minLength: {
-    value: 5,
-    message: "Email must be at least 5 characters",
-  },
-})}
-/>
-{errors.email && <p>{errors?.email.message}</p>}
-<textarea placeholder="Message" name="message">
+        {errors.name && <p className={styles.error}>{errors.name.message}</p>}
 
-</textarea>
-        <input type="submit" />
+        <input
+          type="email"
+          placeholder="Email"
+          {...register("email", {
+            required: "Please enter your email.",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Invalid email address.",
+            },
+          })}
+        />
+        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+
+        <textarea
+          placeholder="Message"
+          {...register("message", {
+            required: "Please write a message.",
+            minLength: {
+              value: 3,
+              message: "Message is too short.",
+            },
+          })}
+          />
+        {errors.message && (
+          <p className={styles.error}>{errors.message.message}</p>
+        )}
+
+        {successMsg && <p className={styles.success}>{successMsg}</p>}
+        <input type="submit" disabled={state.submitting} />
       </form>
     </section>
   );
