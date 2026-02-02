@@ -1,4 +1,3 @@
-//import { useState } from "react";
 import barSite from "./../../assets/projectsCard/barSite.png";
 import moviTheatre from "./../../assets/projectsCard/moviTheatre.png";
 import travelTrip from "./../../assets/projectsCard/travelTrip.png";
@@ -6,13 +5,12 @@ import shoppingCard from "./../../assets/projectsCard/shoppingCard.png";
 import styles from "./ProjectsStyle.module.css";
 import { useTheme } from "./../ThemeContext";
 
-
 const cardData = [
   {
     id: 1,
     title: "Bar",
     img: barSite,
-    description: "This is a bar website",
+    description: "Сайт бару зі своїм меню і базою данних",
     github: "https://github.com/juliMostova/bar-website",
     demo: "https://julimostova.github.io/bar-website/",
   },
@@ -20,7 +18,7 @@ const cardData = [
     id: 2,
     title: "Movie TV",
     img: moviTheatre,
-    description: "Movie and TV streaming",
+    description: "Онлайн кінотеатр з пошуком",
     github: "https://github.com/juliMostova/onlineMoviTheatreWithApi",
     demo: "https://julimostova.github.io/onlineMoviTheatreWithApi/",
   },
@@ -28,7 +26,7 @@ const cardData = [
     id: 3,
     title: "Travel",
     img: travelTrip,
-    description: "Travel blog and trip planning",
+    description: "Сайт подорожей з можливістю обрати тур зі знижкою",
     github: "https://github.com/juliMostova/Travel-",
     demo: "https://julimostova.github.io/Travel-/",
   },
@@ -36,14 +34,14 @@ const cardData = [
     id: 4,
     title: "Shopping card",
     img: shoppingCard,
-    description: "Online shopping cart",
+    description: "Корзина з покупками ,видаленням і додаванням товарів",
     github: "https://github.com/juliMostova/shoppingCard",
     demo: "https://julimostova.github.io/shoppingCard/",
   },
 ];
 
 function Projects() {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={styles.wrapper}>
@@ -56,24 +54,29 @@ function Projects() {
                 className={styles.front}
                 style={{ backgroundImage: `url(${card.img})` }}
               ></div>
-              <div 
-              className={`${styles.back} ${
-                theme === 'dark'? styles.dark:""}`}>
+              <div
+                className={`${styles.back} ${
+                  theme === "dark" ? styles.dark : ""
+                }`}
+              >
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
                 <a
-                
-                href={card.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-              <a
-              href={card.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              >Demo</a>
+                  href={card.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`GitHub репозиторій ${card.title}`}
+                >
+                  GitHub
+                </a>
+                <a
+                  href={card.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Demo версія ${card.demo}`}
+                >
+                  Demo
+                </a>
               </div>
             </div>
           </div>

@@ -1,39 +1,97 @@
-.container{
-display: flex;
-flex-direction: column;
-text-align: center;
-}
-.skills_head{
-    font-size: 2rem;
-  font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-    padding: 40px;
-}
-span{
-    display: flex;
-    align-items: center;
-    gap:5px;
-}
-img{
-    width: 20px;
-    margin-left: 10px;
-}
-.skillsListElem{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    row-gap: 40px;
-    align-self: center;
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 60px;
+
 }
 
-@media(max-width:576px){
-    .skillsListElem{
-        max-width: fit-content;  
-        gap:20px;
-    }
-    .skills_head{
-        margin: 5px;
-        padding: 5px;
-    }
+.head {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: 3rem;
+  color: var(--text-color);
+    text-align: center;
+}
+
+.group {
+width: 80%;                   
+  max-width: 1000px;            
+  margin: 2rem auto;          
+  padding: 1.8rem 2rem;
+  background: var(--card-bg);    
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.08),  
+    inset 0 2px 4px rgba(255, 255, 255, 0.6); 
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+}
+
+.group:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.groupTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.item:hover {
+  transform: translateX(8px);
+}
+
+.check {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.skillName {
+  font-weight: 500;
+}
+
+.level {
+  font-size: 0.9rem;
+  color: var(--text-color-secondary);
+  opacity: 0.8;
+}
+
+/* Мобілка */
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .item {
+    font-size: 1.1rem;
+    justify-content: flex-start;
+  }
 }
