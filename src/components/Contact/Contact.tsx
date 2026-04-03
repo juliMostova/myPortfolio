@@ -2,28 +2,32 @@ import { useForm as useReactHookForm } from "react-hook-form";
 import { useForm as useFormspree } from "@formspree/react";
 import { useEffect, useState } from "react";
 import styles from "./ContactStyle.module.css";
+import {IContacts} from '../../types';
 
-function Contact() {
+
+
+
+function Contact():JSX.Element {
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
-  } = useReactHookForm({ mode: "onBlur" });
+  } = useReactHookForm <IContacts>({ mode: "onBlur" });
 
   const [state, formspreeSubmit] = useFormspree("mnnplqyp");
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMg, setErrorMg] = useState("");
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data:IContacts) => {
     setErrorMg("");
-    const response = await formspreeSubmit(data);
-    if (response.error) {
-      setErrorMg("Failed to send message. Try again.");
-    }
+    await formspreeSubmit(data);
   };
 
   useEffect(() => {
+    if(state.errors){
+      setErrorMg("Failed to send message. Try again.");
+    }
     if (state.succeeded) {
       setSuccessMsg("Your message has been sent successfully!");
       reset();
@@ -67,7 +71,7 @@ function Contact() {
         </div>
 
         <div className={styles.field}>
-          <label htmlFor="email">Адреса кому лист</label>
+          <label htmlFor="email">Адреса</label>
           <input
             id="email"
             type="email"

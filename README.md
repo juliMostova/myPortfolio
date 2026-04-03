@@ -1,8 +1,26 @@
 # React + Vite
+💻 My Portfolio Project
+Це персональний сайт-візитка, створений для закріплення навичок роботи з React та TypeScript. Основна мета проєкту — перехід від JavaScript до строгої типізації та практика в створенні адаптивного інтерфейсу
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠 Технологічний стек
+Frontend: React 18, TypeScript.
+Стилізація: CSS Modules, Responsive Design.
+Інструменти: Vite (збірка), ESLint (лінтинг).
 
-Currently, two official plugins are available:
+Бібліотеки:
+react-hook-form — для роботи з формами.
+@formspree/react — для обробки повідомлень.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📂 Структура проекту
+src/
+├── assets/          # Зображення та статичні файли
+├── components/      # React компоненти (Projects, Skills, Contact)
+├── types/           # Глобальні інтерфейси TypeScript (types.ts)
+├── ThemeContext.tsx # Логіка перемикання тем
+├── App.tsx          # Головний компонент
+└── main.tsx         # Точка входу
+
+🚀 Установка:
+1. `clone repository`
+2. `npm install`
+3. `npm run dev`

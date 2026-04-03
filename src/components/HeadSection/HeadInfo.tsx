@@ -7,10 +7,11 @@ import gitHub_dark from "./../../assets/github-light.svg";
 import linkedin_light from "./../../assets/linkedin-dark.svg";
 import linkedin_dark from "./../../assets/linkedin-light.svg";
 import sun from "./../../assets/sun.svg";
-import moon from "./../../assets/moon.svg";
-import { useTheme } from "./../ThemeContext";
+import moon from "../../assets/moon.svg";
+import { useTheme } from "../ThemeContext";
 
-function HeadInfo() {
+
+function HeadInfo (): JSX.Element {
   const { theme, toggleTheme } = useTheme();
 
   const linkedin = theme === "light" ? linkedin_dark : linkedin_light;

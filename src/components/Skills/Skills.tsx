@@ -1,14 +1,14 @@
 import checkLight from "./../../assets/checkmark-light.svg";
 import checkDark from "./../../assets/checkmark-dark.svg";
 import styles from "./SkillsStyle.module.css";
-// import SkillsList from './SkillsList';
-import { useTheme } from "./../ThemeContext";
+ import {ISkillGroup} from './../../types';
+import { useTheme } from "../ThemeContext";
 
-function Skills() {
+function Skills(): JSX.Element {
   const { theme } = useTheme();
   const changeTheme = theme === "dark" ? checkDark : checkLight;
 
-  const skillsGroups = [
+  const skillsGroups:ISkillGroup[] = [
     {
       title: "Frontend Development",
       items: [

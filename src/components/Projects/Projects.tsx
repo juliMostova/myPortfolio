@@ -3,44 +3,45 @@ import moviTheatre from "./../../assets/projectsCard/moviTheatre.png";
 import travelTrip from "./../../assets/projectsCard/travelTrip.png";
 import shoppingCard from "./../../assets/projectsCard/shoppingCard.png";
 import styles from "./ProjectsStyle.module.css";
-import { useTheme } from "./../ThemeContext";
+import { useTheme } from "../ThemeContext";
+import {IPortfolioProject} from '../../types';
 
-const cardData = [
+const cardData :IPortfolioProject[] = [
   {
-    id: 1,
+    id: '1',
     title: "Bar",
-    img: barSite,
+    image: barSite,
     description: "Сайт бару зі своїм меню і базою данних",
     github: "https://github.com/juliMostova/bar-website",
     demo: "https://julimostova.github.io/bar-website/",
   },
   {
-    id: 2,
+    id: '2',
     title: "Movie TV",
-    img: moviTheatre,
+    image: moviTheatre,
     description: "Онлайн кінотеатр з пошуком",
     github: "https://github.com/juliMostova/onlineMoviTheatreWithApi",
     demo: "https://julimostova.github.io/onlineMoviTheatreWithApi/",
   },
   {
-    id: 3,
+    id: '3',
     title: "Travel",
-    img: travelTrip,
+    image: travelTrip,
     description: "Сайт подорожей з можливістю обрати тур зі знижкою",
     github: "https://github.com/juliMostova/Travel-",
     demo: "https://julimostova.github.io/Travel-/",
   },
   {
-    id: 4,
+    id: '4',
     title: "Shopping card",
-    img: shoppingCard,
+    image: shoppingCard,
     description: "Корзина з покупками ,видаленням і додаванням товарів",
     github: "https://github.com/juliMostova/shoppingCard",
     demo: "https://julimostova.github.io/shoppingCard/",
   },
 ];
 
-function Projects() {
+function Projects(): JSX.Element {
   const { theme } = useTheme();
 
   return (
@@ -52,7 +53,7 @@ function Projects() {
             <div className={styles.card}>
               <div
                 className={styles.front}
-                style={{ backgroundImage: `url(${card.img})` }}
+                style={{ backgroundImage: `url(${card.image})` }}
               ></div>
               <div
                 className={`${styles.back} ${
